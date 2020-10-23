@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middlewares/auth');
 
-router.get('/', function(req, res) {
+// Adicionado o middleware 'auth' para fazer a verificação do token
+router.get('/', auth, function(req, res) {
+    console.log(res.locals.auth_data);  // mostra o userId do usuário autenticado
     return res.send({message: 'Essa informação é muito importante!'});
 });
 

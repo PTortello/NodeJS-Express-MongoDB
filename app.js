@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const config = require('./config/config');
 
-const url = 'mongodb+srv://usuario_admin:nod3m0ng0@cluster0.f1kvp.mongodb.net/<dbname>?retryWrites=true&w=majority';
+const url = config.bd_string;
 const options = { useUnifiedTopology: true, poolSize: 5, useNewUrlParser: true };
 
 mongoose.connect(url, options);

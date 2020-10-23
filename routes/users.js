@@ -3,9 +3,10 @@ const router = express.Router();
 const Users = require('../model/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const config = require('../config/config');
 
 const createUserToken = (userId) => {
-    return jwt.sign({ id: userId }, 'senhasecreta', { expiresIn: '7d' });
+    return jwt.sign({ id: userId }, config.jwt_pass, { expiresIn: config.jwt_expires_in });
 }
 
 

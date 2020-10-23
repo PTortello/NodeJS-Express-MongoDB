@@ -6,8 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PTortello/NodeJS-Express-MongoDB.git"
+  },
   "author": "Pedro Tortello",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PTortello/NodeJS-Express-MongoDB/issues"
+  },
+  "homepage": "https://github.com/PTortello/NodeJS-Express-MongoDB#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",

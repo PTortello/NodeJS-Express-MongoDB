@@ -7,10 +7,7 @@ const auth = (req, res, next) => {
 
     jwt.verify(token_header, 'senhasecreta', (err, decoded) =>{
         if (err) return res.send({ error: 'Token inválido!' });
-        
-        // Permite receber de volta o userId do usuário autenticado
         res.locals.auth_data = decoded;
-
         return next();
     });
 }

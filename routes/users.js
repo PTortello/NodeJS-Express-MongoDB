@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 // Funções auxiliares
 const createUserToken = (userId) => {
-    return jwt.sign({ id: userId }, 'senhasecreta', { expiresIn: '7d' });   // token expira em 7 dias
+    return jwt.sign({ id: userId }, 'senhasecreta', { expiresIn: '7d' });
 }
 
 
@@ -31,7 +31,6 @@ router.post('/create', async (req, res) => {
 
         const user = await Users.create(req.body);
         user.password = undefined;
-        // Adicionado o envio do token
         return res.send({ user, token: createUserToken(user.id) });
     }
     catch (err) {
@@ -53,7 +52,6 @@ router.post('/auth', async (req, res) => {
         if (!pass_ok) return res.send({ error: 'Erro ao autenticar usuário!'});
 
         user.password = undefined;
-        // Adicionado o envio do token
         return res.send({ user, token: createUserToken(user.id) });
     }
     catch (err) {
